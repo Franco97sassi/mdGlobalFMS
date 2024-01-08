@@ -1,6 +1,6 @@
 import logo from "../assets/Home/logo.png";
 import { Link } from "react-router-dom";
-import '../componentes/Home/style.css'
+import '../componentes/Home/styles.css'
 function Navbar() {
   return (
     <div
@@ -15,7 +15,7 @@ function Navbar() {
         top: 0,
         position: "absolute",
         marginLeft: '3%',
-        width: '100vw',
+        width: 'auto',
         gap: '3rem'
       }}
     >

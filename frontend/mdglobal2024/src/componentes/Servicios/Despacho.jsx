@@ -1,35 +1,34 @@
 import despacho from "../../assets/servicios/despacho.png";
-
+import './style.css'
+import { isMobile } from "react-device-detect";
 function Despacho() {
   return (
-    <div
+    <div className={`carousel fade-in`}
       style={{
 
         borderRadius: '3rem',
         boxShadow:
           "0px 14px 20px 5px rgba(0, 0, 0, 0.25) , 0px -6px 2px 0px rgba(0, 0, 0, 0.25) inset",
-        width: "1803px",
-        height: "847px",
+
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
+        flexDirection: isMobile ? 'column' :  "row",
+        justifyContent:  isMobile ? '' : "space-between",
         alignItems: "center",
         color: 'rgba(143, 13, 60, 1)',
         gap: '1rem'
       }}
     >
       <div>
-        <img
-          style={{ width: "757px", height: "654px" }}
+      <img className="fotito"
           src={despacho}
           alt=""
         />
       </div>
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ fontWeight: "bold", fontSize: "48px" }}>
+      <span className="texto1" style={{ fontWeight: "bold", alignSelf: 'center' }}>
         DESPACHO ADUANAL MX/USA
         </span>
-        <span style={{ fontWeight: "300", fontSize: "30px" , marginRight: '15%'}}>
+        <span className="texto2" style={{ fontWeight: "300", alignSelf: 'center' , textAlign: 'center' , margin: '1rem '}}>
         Le ofrecemos una experiencia más amena al ofrecer 
 una cuenta global de desaduanamiento entre México
 y Estados Unidos. 

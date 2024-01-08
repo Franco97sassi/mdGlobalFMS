@@ -1,0 +1,88 @@
+
+
+
+
+@media (max-width: 1920px) {
+  .carousel {
+    width: 1600px;
+    height: 847px;
+  }
+  .fotito {
+    width: 757px;
+    height: 654px;
+  }
+  .texto1 {
+    font-size: 40px;
+  }
+  .texto2 {font-size: 30px;}
+  .auditoria{
+    width: 254px;
+     height: 654px
+
+  }
+}
+
+@media (max-width: 1360px) {
+  .carousel {
+    width: 1100px;
+    height: 447px;
+  }
+  .fotito {
+    width: 450px;
+    height: 400px;
+  }
+  .texto1 {
+    font-size: 25px;
+  }
+  .texto2 {font-size: 20px;}
+  .auditoria{
+    width: 180px;
+     height: 350px
+
+  }
+
+
+}
+
+@media (max-width: 765px) {
+  .carousel {
+    width: 400px;
+    height: auto;
+  }
+  .fotito {
+    width: 250px;
+    height: 250px;
+  }
+  .texto1 {
+    font-size: 15px;
+  }
+  .texto2 {font-size: 15px;}
+  .auditoria{
+    width: 100px;
+     height: 198px
+
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.flechita {
+  transition: transform 0.3s ease-in-out; /* Ajusta el valor según la suavidad deseada */
+
+  /* Otros estilos... */
+}
+
+.flechita:hover {
+  transform: scale(1.2);
+}

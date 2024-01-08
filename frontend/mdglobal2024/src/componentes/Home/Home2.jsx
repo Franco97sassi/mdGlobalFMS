@@ -1,12 +1,14 @@
 import construccion2 from "../../assets/Home/home2.png";
-
+import { isMobile } from "react-device-detect";
+import './styles.css'
 function Home2() {
   return (
     <div
       style={{
         display: "flex",
-        flexDirection: "row",
+        flexDirection: isMobile ? 'column' : "row",
         gap: "1rem",
+        alignItems: isMobile ? 'center' : 'center'
       }}
     >
       <div
@@ -22,7 +24,7 @@ function Home2() {
         }}
       >
         <span
-          className="texto1"
+          className="textoo1"
           style={{
             fontWeight: "bold",
 
@@ -32,12 +34,14 @@ function Home2() {
           ACERCA DE MD GLOBAL
         </span>
         <span
-          className="texto2"
+          className="textoo2"
           style={{
 
             fontWeight: "200",
             lineHeight: "25px",
             marginBottom: "1rem",
+            maxWidth: isMobile ? '300px' : '50rem'
+
           }}
         >
           Fue establecido con el objetivo de complementar las operaciones de
@@ -48,16 +52,20 @@ function Home2() {
         </span>
 
         <span
-          className="texto1"
+          className="textoo1"
           style={{
-            fontWeight: "bold",
+            fontWeight: "500",
 
-            whiteSpace: "nowrap",
+            fontWeight: '600',
+            maxWidth: isMobile ? '320px' : null,
+            marginBottom: '10px'
+
+        
           }}
         >
-          Conoce nuestra nueva herramienta de cotización
+          Conoce nuestra nueva herramienta de cotización <br />
         </span>
-        <span className="texto2"> Cotiza con inteligencia</span>
+        <span className="textoo2"> Cotiza con inteligencia</span>
         <div
           style={{
             display: "flex",
@@ -65,7 +73,7 @@ function Home2() {
             alignItems: "center",
 
             marginTop: "1rem",
-            justifyContent: "center",
+            justifyContent: "left",
           }}
         >
           <button
@@ -85,8 +93,9 @@ function Home2() {
           </button>
         </div>
       </div>
-      <div style={{ marginTop: "5rem", marginRight: "5%" }}>
-        <img className="fotohome1" src={construccion2} alt="" />
+      <div style={{ marginTop: isMobile ? '0.5rem' : "5rem", marginRight: "5%" }}>
+        <img  style={{height: isMobile ? '300px' : null ,
+      width: isMobile ? '350px' : null}} className="fotohome1" src={construccion2} alt="" />
       </div>
     </div>
   );
