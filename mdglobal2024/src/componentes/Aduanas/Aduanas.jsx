@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import mapa from "../../assets/Aduanas/mapa.png"
 import { Box, Typography } from '@material-ui/core'
 import Navbar from "../Navbar";
@@ -8,15 +8,35 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 const Aduanas = () => {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = useState('1');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
   const mapIframeStyle = {
     width: '1217px',
     height: '606px',
     borderRadius: '40px',
+  };
+
+  const tabStyle = {
+    "&.MuiSelected": {
+      borderBottom: "2px solid transparent", // Elimina el subrayado azul
+    },
+  };
+
+  const getTabPanelStyle = (tabValue) => {
+    return {
+      backgroundColor: value === tabValue ? 'white' : '', // Aplica blanco solo a la pestaña seleccionada
+      borderRadius: "40px",
+      color: "black",
+ 
+    };
+  };
+  const tabLabelStyle = {
+    color: value === '1' ? 'black' : 'rgba(143, 150, 164, 1)',
+    borderBottom: '2px solid transparent',
   };
   return (
     <div>
@@ -25,20 +45,25 @@ const Aduanas = () => {
         <Typography style={{  fontSize: '48px' ,fontWeight:600, color: "#8F0D3C" }}>
         ADUANAS
         </Typography>
-        <Typography style={{   fontSize:"30px", color: "rgba(143, 150, 164, 1)",
+        <Typography style={{   fontSize:"30px", color: "rgba(143, 150, 164, 1)", marginBottom:"23px"
 }}>
         Con nuestras asesorías puedes aclarar tus ideas para tus proyectos de importación
         </Typography></Box>
-        <Box sx={{ width: '100%', typography: 'body1' }}  >
-      <TabContext value={value} style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider'  }} style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example"  >
-            <Tab label="Fronteriza" value="1" />
-            <Tab label="Marítima" value="2" />
-            <Tab label="Aérea" value="3" />
-          </TabList>
+        <Box
+        style={{
+          maxWidth: '400px', // Cambia el valor según tus necesidades
+          margin: '0 auto',  // Para centrar el menú horizontalmente
+        }}
+      >
+      <TabContext value={value} >
+        <Box sx={{ borderBottom: 1, borderColor: 'divider'  }} style={{borderRadius:"50px",backgroundColor:"rgba(143, 13, 60, 1)",display:"flex",flexDirection:"row",justifyContent:"center",marginBottom:"25px"}}>
+        <TabList onChange={handleChange} aria-label="lab API tabs example">
+  <Tab label="Fronteriza" value="1" style={{ ...getTabPanelStyle('1')  }} />
+  <Tab label="Marítima" value="2" style={{ ...getTabPanelStyle('2')}} />
+  <Tab label="Aérea" value="3" style={{ ...getTabPanelStyle('3') }} />
+</TabList>
         </Box>
-        <Box style={{display:"flex",flexDirection:"row",justifyContent:"center"}}>  
+        <Box style={{display:"flex",flexDirection:"row",justifyContent:"center" }}>  
         <TabPanel value="1"> <iframe src="https://www.google.com/maps/d/embed?mid=1jiu6HtrEZ4Wrl_rnYlpc9iUiFGkZHqc&ehbc=2E312F" style={mapIframeStyle} width="640" height="480"></iframe></TabPanel>
         <TabPanel value="2"><iframe src="https://www.google.com/maps/d/embed?mid=1IOKxKqIpCkIWYed6H1f-oK80DadUYEA&ehbc=2E312F" style={mapIframeStyle} width="640" height="480"></iframe></TabPanel>
         <TabPanel value="3"><iframe src="https://www.google.com/maps/d/embed?mid=1zhULW3mzp2nMTOJyUJ-yNZdxc5CXRJ4&ehbc=2E312F" style={mapIframeStyle} width="640" height="480"></iframe></TabPanel>

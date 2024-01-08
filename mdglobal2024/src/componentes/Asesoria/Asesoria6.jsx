@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     borderRadius: '40px', // Aplicar borderRadius al TextField
     '& .MuiInputBase-input': {
       paddingTop: '15px', // Aumentar el relleno superior para mover el placeholder hacia abajo
-      fontSize: '40px', // Tamaño de la fuente del placeholder
+      fontSize: '25px', // Tamaño de la fuente del placeholder
       color: 'rgba(143, 13, 60, 1)', // Color del texto del placeholder
     },
     '& .MuiOutlinedInput-root': {
@@ -50,6 +50,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
+
 const AsesoriaSex = () => {
   const classes = useStyles();
 

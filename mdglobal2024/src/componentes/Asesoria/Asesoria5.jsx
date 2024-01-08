@@ -63,7 +63,13 @@ const AsesoriaQuin = () => {
 
   const items = ["Honorarios", "Validación", "Cove", "Revalidación", "Gastos Terminal", "MVyHC", "Contrapestación", "Sellos"];
   const prices = ["$5.000,00", "$3.000,00", "$200,00", "$500,00", "$2.000,00", "$500,00", "$50,00", "$200,00"];
+  const getTabPanelStyle = (tabValue) => {
+    return {
+      backgroundColor: value === tabValue ? 'white' : '', // Aplica blanco solo a la pestaña seleccionada
+      borderRadius: "40px",
+      color: "black",
  
+    };};
   
   return (
     <div>
@@ -76,13 +82,13 @@ const AsesoriaQuin = () => {
           En este apartado se desglosarán los costos de importación por las diferentes vías
         </Typography>
          <TabContext value={value}  >
-          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}  >
-          <TabList onChange={handleChange} classes={{ indicator: classes.tabIndicator }} aria-label="lab API tabs example">
-          <Tab classes={{ root: classes.tabRoot, selected: classes.tabSelected }} label="Fronteriza" value="1" />
-          <Tab classes={{ root: classes.tabRoot, selected: classes.tabSelected }} label="Marítima" value="2" />
-          <Tab classes={{ root: classes.tabRoot, selected: classes.tabSelected }} label="Aérea" value="3" />
-        </TabList>
-          </Box>
+         <Box sx={{ borderBottom: 1, borderColor: 'divider'  }} style={{borderRadius:"50px",backgroundColor:"rgba(143, 13, 60, 1)",display:"flex",flexDirection:"row",justifyContent:"center",marginBottom:"25px"}}>
+        <TabList onChange={handleChange} aria-label="lab API tabs example">
+  <Tab label="Fronteriza" value="1" style={{ ...getTabPanelStyle('1')  }} />
+  <Tab label="Marítima" value="2" style={{ ...getTabPanelStyle('2')}} />
+  <Tab label="Aérea" value="3" style={{ ...getTabPanelStyle('3') }} />
+</TabList>
+        </Box>
           <TabPanel value="1"> {/* Contenido del TabPanel 1 */}</TabPanel>
           <TabPanel value="2"> {/* Contenido del TabPanel 2 */}</TabPanel>
           <TabPanel value="3"> {/* Contenido del TabPanel 3 */}</TabPanel>
